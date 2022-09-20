@@ -30,6 +30,5 @@ class OTPMail extends Mailable
     public function build()
     {
         return $this->markdown('email.otp')->from('admin_laravel@laravel.com')->with(['otp' => $this->otp]);
-        // return $this->view('view.name');
     }
 }

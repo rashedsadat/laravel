@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use App\Mail\OTPMail;
+use App\Events\OtpSend;
 use Twilio\Rest\Client;
+use App\Jobs\SendOtpJob;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Cache;
@@ -36,7 +38,7 @@ class Notification extends Model
             $twilio->messages->create(
                             "+8801675875019",
                            ["body" => 'Hi '.Auth::user()->name.' Your account varification code is '.$otp, "from" => "+19253970478"]
-                  );
+                        );
         }
         
     }

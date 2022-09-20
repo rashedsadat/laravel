@@ -106,7 +106,7 @@
                             <ul class="dt-list dt-list-sm dt-list-cm-0 ml-auto">
                                 <li class="dt-list__item">
                                     <!-- Facebook -->
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                                    <a href="{{ route('facebookRedirect') }}" class="btn btn-outline-primary dt-fab-btn size-30">
                                         <i class="icon icon-facebook icon-xl"></i>
                                     </a>
                                 </li>

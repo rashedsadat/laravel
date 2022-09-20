@@ -15,7 +15,7 @@ class UserVarified
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->user()->email_verified_at){
+        if(session('user')->verified_at){
             return $next($request);
         }
         return redirect('verify');

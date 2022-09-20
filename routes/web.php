@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Social\SocialAuthFacebookController;
 use App\Http\Controllers\VerifyOtpController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,10 +32,6 @@ Route::get('/verify', [VerifyOtpController::class, 'showVerifyForm'])->name('ver
 Route::post('/send_verify_code', [VerifyOtpController::class, 'sendVerifyOtp'])->name('send_verify_code');
 Route::post('/confirm_verification', [VerifyOtpController::class, 'confirmVerificationOtp'])->name('confirm_verification');
 
-// Route::post('/confirm_verification', function(){
-//     dd('something');
-// })->name('confirm_verification');
-
 Route::namespace('Admin')->group(function(){
 
     // Route::get('/mark-read', function () {
@@ -48,3 +45,6 @@ Route::namespace('Admin')->group(function(){
     // Route::resource('users', 'UserController');
     // Route::resource('permissions', 'PermissionController');
 });
+
+Route::get('/facebookRedirect', [SocialAuthFacebookController::class, 'facebookRedirect'])->name('facebookRedirect');
+Route::get('/facebookCallback', [SocialAuthFacebookController::class, 'facebookCallback'])->name('facebookCallback');

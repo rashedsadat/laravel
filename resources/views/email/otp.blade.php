@@ -1,5 +1,5 @@
 @component('mail::message')
-Hi {{Auth::user()->name}}
+Hi {{session('user')->name}}
 
 Your OTP is {{$otp}}
 
