@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $this->middleware('TwoFa');
     }
 
-    public function index($guard){
+    public function index(){
         return view('admin.home');
     }
 }

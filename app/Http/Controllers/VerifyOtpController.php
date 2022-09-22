@@ -38,7 +38,7 @@ class VerifyOtpController extends Controller
                 Admin::where('id', $user->id)->update(['verified_at' => now()]);
                 $updated_user = Admin::where('id', $user->id)->first();
                 session(['user' => $updated_user]);
-                return redirect('admin.home');
+                return redirect()->route('admin.home'); 
             }
         }
         return back()->with(['status' => 'OTP is Expaire or Invalid']);

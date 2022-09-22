@@ -9,8 +9,8 @@ class SocialFacebookAccountService
 {
     public function createOrGetUser()
     {
-        $test = Socialite::driver('facebook')->stateless()->user();
-        // dd($test);
+        // $test = Socialite::driver('facebook')->stateless()->user();
+        $test = Socialite::driver('facebook')->user();
         $account = SocialFacebookAccount::whereProvider('facebook')
             ->whereProviderUserId($test->getId())
             ->first();

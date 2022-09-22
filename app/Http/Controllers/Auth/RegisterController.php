@@ -82,6 +82,7 @@ class RegisterController extends Controller
         
         if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], 
         $request->get('remember'))) {
+            session(['guard' => 'web', 'user' => $user]);
             return redirect()->route('home');
         }
     }

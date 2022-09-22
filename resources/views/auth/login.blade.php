@@ -103,7 +103,7 @@
 
                                 <li class="dt-list__item">
                                     <!-- Fab Button -->
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                                    <a href="{{ route('googleRedirect') }}" class="btn btn-outline-primary dt-fab-btn size-30">
                                         <i class="icon icon-google-plus icon-xl"></i>
                                     </a>
                                     <!-- /fab button -->
@@ -111,7 +111,7 @@
 
                                 <li class="dt-list__item">
                                     <!-- Fab Button -->
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                                    <a href="{{ route('githubRedirect') }}" class="btn btn-outline-primary dt-fab-btn size-30">
                                         <i class="icon icon-github icon-xl"></i>
                                     </a>
                                     <!-- /fab button -->

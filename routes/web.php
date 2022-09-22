@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Social\SocialAuthFacebookController;
+use App\Http\Controllers\Social\SocialAuthGithubController;
+use App\Http\Controllers\Social\SocialAuthGoogleController;
 use App\Http\Controllers\VerifyOtpController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +42,7 @@ Route::namespace('Admin')->group(function(){
     //     return back();
     // })->name('mark-read')->middleware('auth:admin');
 
-    Route::get('admin', 'DashboardController@index')->name('admin.home');
+    Route::get('admin', [DashboardController::class, 'index'])->name('admin.home');
 
     // Route::resource('roles', 'RoleController');
     // Route::resource('users', 'UserController');
@@ -48,3 +51,9 @@ Route::namespace('Admin')->group(function(){
 
 Route::get('/facebookRedirect', [SocialAuthFacebookController::class, 'facebookRedirect'])->name('facebookRedirect');
 Route::get('/facebookCallback', [SocialAuthFacebookController::class, 'facebookCallback'])->name('facebookCallback');
+
+Route::get('/googleRedirect', [SocialAuthGoogleController::class, 'googleRedirect'])->name('googleRedirect');
+Route::get('/googleCallback', [SocialAuthGoogleController::class, 'googleCallback'])->name('googleCallback');
+
+Route::get('/githubRedirect', [SocialAuthGithubController::class, 'githubRedirect'])->name('githubRedirect');
+Route::get('/githubCallback', [SocialAuthGithubController::class, 'githubCallback'])->name('githubCallback');
