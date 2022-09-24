@@ -27,9 +27,10 @@
     <!-- /perfect scrollbar stylesheet -->
 
     <!-- Load Styles -->
-
+    <link rel="stylesheet" href="{{asset('node_modules/dropzone/dist/min/dropzone.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/lite-style-1.min.css') }}">
     <!-- /load styles -->
+    @stack('style')
 
 </head>
 
@@ -88,8 +89,13 @@
     <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.js') }}"></script>
 
     <script src="{{ asset('node_modules/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{asset('node_modules/dropzone/dist/min/dropzone.min.js')}}"></script>
+    <script src="{{asset('assets/js/custom/dropzone.js')}}"></script>
+    
+    {{-- <script src="{{ asset('assets/js/custom/charts/dashboard-crypto.js') }}"></script> --}}
     <script src="{{ asset('assets/js/script.js') }}"></script>
-    <script src="{{ asset('assets/js/custom/charts/dashboard-crypto.js') }}"></script>
+
+    @stack('script');
 </body>
 
 <!-- Mirrored from wieldy-html.g-axon.work/default/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 19 Aug 2020 08:14:49 GMT -->

@@ -960,3 +960,21 @@
     </div> --}}
     <!-- /site content -->
 @endsection
+
+@push('script')
+<script>
+    function showModal(){
+        // {{-- $('#storeForm')[0].reset(); --}}
+        // {{-- $('#storeForm').find('.is-invalid').removeClass('is-invalid'); --}}
+        // {{-- $('#storeForm').find('.error').remove(); --}}
+        // {{-- $('#storeForm .dropify-render img').attr('src', ''); --}}
+        // {{-- $('#password, #password_confirmation').parent().removeClass('d-none'); --}}
+        $('#sendImageModal').modal();
+
+        // {{-- $('#sendDataModal .modal-title').text(title); --}}
+        // {{-- $('#sendDataModal #send-btn').text(btnText); --}}
+
+    }
+</script>
+    
+@endpush

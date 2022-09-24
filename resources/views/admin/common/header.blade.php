@@ -19,9 +19,8 @@
                 <!-- Brand logo -->
                 <span class="dt-brand__logo">
                     <a class="dt-brand__logo-link" href="index-2.html">
-                        <img class="dt-brand__logo-img d-none d-lg-inline-block" src="assets/images/logo.png"
-                            alt="Wieldy">
-                        <img class="dt-brand__logo-symbol d-lg-none" src="assets/images/logo-symbol.png" alt="Wieldy">
+                        <img class="dt-brand__logo-img d-none d-lg-inline-block" src="{{asset('assets/images/logo-white.png')}}" alt="Wieldy">
+                        <img class="dt-brand__logo-symbol d-lg-none" src="{{asset('assets/images/logo-symbol.png')}}" alt="Wieldy">
                     </a>
                 </span>
                 <!-- /brand logo -->
@@ -42,8 +41,7 @@
                         <input class="form-control" placeholder="Search in app..." value="" type="search">
                         <span class="search-icon"><i class="icon icon-search icon-lg"></i></span>
                         <div class="input-group-append">
-                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">Category
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category
                             </button>
 
                             <div class="dropdown-menu">
@@ -121,7 +119,7 @@
 
                                             <!-- Avatar -->
                                             <img class="dt-avatar mr-3"
-                                                src="assets/images/user-avatar/stella-johnson.jpg" alt="User">
+                                                src="{{asset('assets/images/user-avatar/stella-johnson.jpg')}}" alt="User">
                                             <!-- avatar -->
 
                                             <!-- Media Body -->
@@ -142,7 +140,7 @@
                                         <a href="javascript:void(0)" class="media">
 
                                             <!-- Avatar -->
-                                            <img class="dt-avatar mr-3" src="assets/images/user-avatar/jeson-born.jpg"
+                                            <img class="dt-avatar mr-3" src="{{asset('assets/images/user-avatar/jeson-born.jpg')}}"
                                                 alt="User">
                                             <!-- avatar -->
 
@@ -163,7 +161,7 @@
                                         <a href="javascript:void(0)" class="media">
 
                                             <!-- Avatar -->
-                                            <img class="dt-avatar mr-3" src="assets/images/user-avatar/selena.jpg"
+                                            <img class="dt-avatar mr-3" src="{{asset('assets/images/user-avatar/selena.jpg')}}"
                                                 alt="User">
                                             <!-- avatar -->
 
@@ -187,7 +185,7 @@
                                         <a href="javascript:void(0)" class="media">
 
                                             <!-- Avatar -->
-                                            <img class="dt-avatar mr-3" src="assets/images/user-avatar/alex-dolgove.jpg"
+                                            <img class="dt-avatar mr-3" src="{{asset('assets/images/user-avatar/alex-dolgove.jpg')}}"
                                                 alt="User">
                                             <!-- avatar -->
 
@@ -255,7 +253,7 @@
                                         <a href="javascript:void(0)" class="media">
 
                                             <!-- Avatar -->
-                                            <img class="dt-avatar mr-3" src="assets/images/user-avatar/mathew.jpg"
+                                            <img class="dt-avatar mr-3" src="{{asset('assets/images/user-avatar/mathew.jpg')}}"
                                                 alt="User">
                                             <!-- avatar -->
 
@@ -286,7 +284,7 @@
 
                                             <!-- Avatar -->
                                             <img class="dt-avatar mr-3"
-                                                src="assets/images/user-avatar/stella-johnson.jpg" alt="User">
+                                                src="{{asset('assets/images/user-avatar/stella-johnson.jpg')}}" alt="User">
                                             <!-- avatar -->
 
                                             <!-- Media Body -->
@@ -317,7 +315,7 @@
                                         <a href="javascript:void(0)" class="media">
 
                                             <!-- Avatar -->
-                                            <img class="dt-avatar mr-3" src="assets/images/user-avatar/steve-smith.jpg"
+                                            <img class="dt-avatar mr-3" src="{{asset('assets/images/user-avatar/steve-smith.jpg')}}"
                                                 alt="User">
                                             <!-- avatar -->
 
@@ -349,7 +347,7 @@
                                         <a href="javascript:void(0)" class="media">
 
                                             <!-- Avatar -->
-                                            <img class="dt-avatar mr-3" src="assets/images/user-avatar/domnic-brown.jpg"
+                                            <img class="dt-avatar mr-3" src="{{asset('assets/images/user-avatar/domnic-brown.jpg')}}"
                                                 alt="User">
                                             <!-- avatar -->
 
@@ -401,7 +399,7 @@
                             <!-- Dropdown Link -->
                             <a href="#" class="dt-nav__link dropdown-toggle no-arrow dt-avatar-wrapper"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="dt-avatar size-40" src="assets/images/user-avatar/domnic-harris.jpg"
+                                <img class="dt-avatar size-40" src="{{asset('assets/images/user-avatar/domnic-harris.jpg')}}"
                                     alt="Domnic Harris">
                             </a>
                             <!-- /dropdown link -->
@@ -410,7 +408,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div
                                     class="dt-avatar-wrapper flex-nowrap p-6 mt--5 bg-gradient-purple text-white rounded-top">
-                                    <img class="dt-avatar" src="assets/images/user-avatar/domnic-harris.jpg"
+                                    <img class="dt-avatar" src="{{asset('assets/images/user-avatar/domnic-harris.jpg')}}"
                                         alt="Domnic Harris">
                                     <span class="dt-avatar-info">
                                         <span class="dt-avatar-name">Bob Hyden</span>

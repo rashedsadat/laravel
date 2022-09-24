@@ -8,10 +8,10 @@
             <div class="dropdown mb-6" id="user-menu-dropdown">
 
                 <!-- Dropdown Link -->
-                <a href="#" class="dropdown-toggle dt-avatar-wrapper text-body" data-toggle="dropdown"
+                <a href="#" class="dropdown-toggle dt-avatar-wrapper text-body mt-3" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img class="dt-avatar" src="assets/images/user-avatar/domnic-harris.jpg"
-                        alt="Domnic Harris">
+                    <img class="dt-avatar" src="{{asset('assets/images/default_image/default_profile.png')}}"
+                        alt="{{asset('assets/images/default_image/default_profile.png')}}">
                     <span class="dt-avatar-info">
                         <span class="dt-avatar-name">{{ Auth::user()->name }}</span>
                     </span> </a>
@@ -19,19 +19,21 @@
 
                 <!-- Dropdown Option -->
                 <div class="dropdown-menu dropdown-menu-right">
-                    <div
-                        class="dt-avatar-wrapper flex-nowrap p-6 mt--5 bg-gradient-purple text-white rounded-top">
-                        <img class="dt-avatar" src="assets/images/user-avatar/domnic-harris.jpg"
-                            alt="Domnic Harris">
-                        <span class="dt-avatar-info">
+                    <div class="dt-avatar-wrapper flex-nowrap p-6 mt--5 bg-gradient-purple text-white rounded-top">
+                        <a type="button" href="{{route('admin.profilePicture')}}">
+                            <img class="dt-avatar" src="{{asset('assets/images/default_image/default_profile.png')}}" alt="{{asset('assets/images/default_image/default_profile.png')}}">
+                        </a>
+                        {{-- <button type="button" id="addNew" class="btn btn-primary float-right" data-toggle="modal" data-target="#sendDataModal" onclick="showModal('Add new user','Submit')">Add New
+                        </button> --}}
+                        
+                        <span class="dt-avatar-info ml-3">
                             <span class="dt-avatar-name">{{ Auth::user()->name }}</span>
                             <span class="f-12">Administrator</span>
                         </span>
                     </div>
+                    <a class="dropdown-item" href="{{route('admin.profile')}}">Profile</a>
                     <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"> <i
-                            class="icon icon-edit icon-fw mr-2 mr-sm-1"></i>Logout
-                    </a>
+                    document.getElementById('logout-form').submit();">Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>

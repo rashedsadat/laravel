@@ -43,6 +43,9 @@ Route::namespace('Admin')->group(function(){
     // })->name('mark-read')->middleware('auth:admin');
 
     Route::get('admin', [DashboardController::class, 'index'])->name('admin.home');
+    Route::get('admin/profile', [DashboardController::class, 'showProfile'])->name('admin.profile');
+    Route::get('admin/profilePicture', [DashboardController::class, 'showUploadProfilePicture'])->name('admin.profilePicture');
+    Route::post('admin/upload_profile_pic', [DashboardController::class, 'uploadProfilePic'])->name('admin.upload_profile_pic');
 
     // Route::resource('roles', 'RoleController');
     // Route::resource('users', 'UserController');

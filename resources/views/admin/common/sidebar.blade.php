@@ -96,7 +96,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/default" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/fixed.png" alt="Fixed Layout">
+                                    <img src="{{asset('assets/images/layouts/fixed.png')}}" alt="Fixed Layout">
                                 </a>
                             </div>
                         </li>
@@ -104,7 +104,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/mini-sidebar" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/mini-sidebar.png" alt="Mini Layout">
+                                    <img src="{{asset('assets/images/layouts/mini-sidebar.png')}}" alt="Mini Layout">
                                 </a>
                             </div>
                         </li>
@@ -112,7 +112,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/drawer" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/drawer-nav.png" alt="Drawer Nav Layout">
+                                    <img src="{{asset('assets/images/layouts/drawer-nav.png')}}" alt="Drawer Nav Layout">
                                 </a>
                             </div>
                         </li>
@@ -120,7 +120,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/back-office-mini" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/no-header-mini-sidebar.png"
+                                    <img src="{{asset('assets/images/layouts/no-header-mini-sidebar.png')}}"
                                         alt="No Header Mini Sidebar Layout">
                                 </a>
                             </div>
@@ -129,7 +129,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/back-office" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/vertical-no-header.png"
+                                    <img src="{{asset('assets/images/layouts/vertical-no-header.png')}}"
                                         alt="Vertical No Header Layout">
                                 </a>
                             </div>
@@ -138,7 +138,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/horizontal" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/horizontal-default.png"
+                                    <img src="{{asset('assets/images/layouts/horizontal-default.png')}}"
                                         alt="Horizontal Default Layout">
                                 </a>
                             </div>
@@ -147,7 +147,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/horizontal-dark" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/horizontal-dark.png"
+                                    <img src="{{asset('assets/images/layouts/horizontal-dark.png')}}"
                                         alt="Horizontal Dark Layout">
                                 </a>
                             </div>
@@ -156,7 +156,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/horizontal-inside-nav"
                                     target="_blank" class="choose-option__icon">
-                                    <img src="assets/images/layouts/horizontal-inside-nav.png"
+                                    <img src="{{asset('assets/images/layouts/horizontal-inside-nav.png')}}"
                                         alt="Horizontal Inside Nav Layout">
                                 </a>
                             </div>
@@ -165,7 +165,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/horizontal-bottom-nav"
                                     target="_blank" class="choose-option__icon">
-                                    <img src="assets/images/layouts/horizontal-bottom-nav.png"
+                                    <img src="{{asset('assets/images/layouts/horizontal-bottom-nav.png')}}"
                                         alt="Horizontal Bottom Nav Layout">
                                 </a>
                             </div>
@@ -174,7 +174,7 @@
                             <div class="choose-option">
                                 <a href="https://wieldy-html.g-axon.work/horizontal-top-nav" target="_blank"
                                     class="choose-option__icon">
-                                    <img src="assets/images/layouts/horizontal-top-nav.png"
+                                    <img src="{{asset('assets/images/layouts/horizontal-top-nav.png')}}"
                                         alt="Horizontal Top Nav Layout">
                                 </a>
                             </div>
@@ -193,25 +193,25 @@
                     <ul class="dt-list dt-list-sm">
                         <li class="dt-list__item">
                             <div class="choose-option">
-                                <a href="javascript:void(0)" class="choose-option__icon"
+                                <a href="" class="choose-option__icon"
                                     data-layout="framed">
-                                    <img src="assets/images/layouts/framed.png" alt="Framed">
+                                    <img src="{{asset('assets/images/layouts/framed.png')}}" alt="Framed">
                                 </a>
                             </div>
                         </li>
                         <li class="dt-list__item">
                             <div class="choose-option">
-                                <a href="javascript:void(0)" class="choose-option__icon"
+                                <a href="" class="choose-option__icon"
                                     data-layout="full-width">
-                                    <img src="assets/images/layouts/full-width.png" alt="Full Width">
+                                    <img src="{{asset('assets/images/layouts/full-width.png')}}" alt="Full Width">
                                 </a>
                             </div>
                         </li>
                         <li class="dt-list__item">
                             <div class="choose-option">
-                                <a href="javascript:void(0)" class="choose-option__icon"
+                                <a href="" class="choose-option__icon"
                                     data-layout="boxed">
-                                    <img src="assets/images/layouts/boxed.png" alt="Boxed">
+                                    <img src="{{asset('assets/images/layouts/boxed.png')}}" alt="Boxed">
                                 </a>
                             </div>
                         </li>
