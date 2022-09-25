@@ -20,4 +20,8 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token'
     ];
+
+    public function adminImageFiles(){
+        return $this->morphMany(UserImageFile::class, 'userType');
+    }
 }

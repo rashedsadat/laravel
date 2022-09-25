@@ -6,11 +6,11 @@
         <div class="dt-sidebar__notification  d-none d-lg-block">
             <!-- Dropdown -->
             <div class="dropdown mb-6" id="user-menu-dropdown">
-
+                
                 <!-- Dropdown Link -->
                 <a href="#" class="dropdown-toggle dt-avatar-wrapper text-body mt-3" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                    <img class="dt-avatar" src="{{asset('assets/images/default_image/default_profile.png')}}"
+                    <img class="dt-avatar" src="{{ asset(session('path')) }}"
                         alt="{{asset('assets/images/default_image/default_profile.png')}}">
                     <span class="dt-avatar-info">
                         <span class="dt-avatar-name">{{ Auth::user()->name }}</span>
@@ -21,7 +21,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dt-avatar-wrapper flex-nowrap p-6 mt--5 bg-gradient-purple text-white rounded-top">
                         <a type="button" href="{{route('admin.profilePicture')}}">
-                            <img class="dt-avatar" src="{{asset('assets/images/default_image/default_profile.png')}}" alt="{{asset('assets/images/default_image/default_profile.png')}}">
+                            <img class="dt-avatar" src="{{ asset(session('path')) }}" alt="{{asset('assets/images/default_image/default_profile.png')}}">
                         </a>
                         {{-- <button type="button" id="addNew" class="btn btn-primary float-right" data-toggle="modal" data-target="#sendDataModal" onclick="showModal('Add new user','Submit')">Add New
                         </button> --}}
