@@ -16,13 +16,13 @@
                 <div class="dt-avatar-wrapper">
                     <!-- Avatar -->
                     <img class="dt-avatar dt-avatar__shadow size-90 mr-sm-4"
-                        src="{{ asset('assets/images/user-avatar/amay.jpg') }}"
+                        src="{{ asset(session('path')) }}"
                         alt="Dinesh Suthar">
                     <!-- /avatar -->
 
                     <!-- Info -->
                     <div class="dt-avatar-info">
-                        <span class="dt-avatar-name display-4 mb-2 font-weight-light">Dinesh Suthar</span>
+                        <span class="dt-avatar-name display-4 mb-2 font-weight-light">{{Auth::guard()->user()->name}}</span>
                         <span class="f-16">Florida, USA</span>
                     </div>
                     <!-- /info -->
