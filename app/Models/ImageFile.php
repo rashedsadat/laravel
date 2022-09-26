@@ -12,6 +12,10 @@ class ImageFile extends Model
         return $this->morphOne(UserImageFile::class, 'userType');
     }
 
+    public function getProfileImage(){
+        return Self::find(session('user')->id)->orderBy('id', 'desc')->first();
+    }
+    
     // public function makeUpload($file)
     // {
 

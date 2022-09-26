@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
 use App\Models\ImageFile;
-use Illuminate\Http\Request;
 use App\Traits\FileUploadable;
 use App\Http\Requests\UploadImage;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use App\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -24,12 +22,18 @@ class DashboardController extends Controller
     }
 
     public function index(){
+        $users = new User();
+        $users = $users->paginate(2);
+        // dd($users);
+
         $image = new ImageFile();
-        $image_file = $image->find(session('user')->id)->orderBy('id', 'desc')->first();
+        $image_file = $image->getProfileImage();
+
         $folder = USER_AVATAR.'/thumbnail';
         $path = $this->find_path($image_file->file_name, $folder);
         session(['path' => $path]);
-        return view('admin.home');
+
+        return view('admin.home', compact('users'));
     }
 
     public function showProfile(){
@@ -59,10 +63,6 @@ class DashboardController extends Controller
             }
         }
         return back();
-        // $files = $request->file('avatar');
-        // $to = USER_AVATAR;
-        // $imageFile = new ImageFile();
-        // $imageFile->upload($to, $files);
     }
     
 }

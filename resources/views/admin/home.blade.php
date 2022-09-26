@@ -40,12 +40,27 @@
                                     <th>Gender</th>
                                     <th>Phone</th>
                                     <th>Verification</th>
-                                    <th>Status</th>
+                                    {{-- <th>Status</th> --}}
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @php
+                                    $index = 0;
+                                @endphp
+                                @foreach($users as $user)
+                                    @php
+                                        $index++;
+                                    @endphp
+                                    <tr>
+                                        <td>{{$index}}</td>
+                                        <td>{{$user['name']}}</td>
+                                        <td>{{$user['email']}}</td>
+                                        <td>{{$user['gender']}}</td>
+                                        <td>{{$user['phone_no']}}</td>
+                                        <td>{{$user['verified_at'] ? 'Varified' : 'NotVarified'}}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                             <tfoot>
                                 <tr>
@@ -55,11 +70,13 @@
                                     <th>Gender</th>
                                     <th>Phone</th>
                                     <th>Verification</th>
-                                    <th>Status</th>
+                                    {{-- <th>Status</th> --}}
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
+                            
                         </table>
+                        {{ $users->links() }}
                     </div>
                     <!-- /tables -->
                 </div>

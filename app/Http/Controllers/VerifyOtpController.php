@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Cache;
 
 class VerifyOtpController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
     public function showVerifyForm(){
         return view('auth.verify');
     }

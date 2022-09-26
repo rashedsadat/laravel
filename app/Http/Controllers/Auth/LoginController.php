@@ -65,7 +65,7 @@ class LoginController extends Controller
             return back()->withInput($request->only('email', 'remember'));
         }
 
-        if (Auth::guard(session('guard'))->attempt(['email' => $request->email, 'password' => $request->password], 
+        if (Auth::guard(session('guard'))->attempt(['email' => $request->email, 'password' => $request->password],
         $request->get('remember'))) {
             // $user[0]->notify(new InvoicePaidNotification());
             
