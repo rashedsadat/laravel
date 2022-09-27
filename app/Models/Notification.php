@@ -37,7 +37,7 @@ class Notification extends Model
             $twilio = new Client($sid, $token);
             $twilio->messages->create(
                             "+8801675875019",
-                           ["body" => 'Hi '.session('user')->name.' Your account varification code is '.$otp, "from" => "+19253970478"]
+                           ["body" => 'Hi '.$user->name.' Your account varification code is '.$otp, "from" => "+19253970478"]
                         );
         }
         

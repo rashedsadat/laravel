@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
     {
         DB::table('admins')->insert(array(
             array(
-                'name' => 'Sadat',
+                'name' => 'Rashed Sadat',
                 'email' => 'sadat@gmail.com',
                 'phone_no' => '01675875018',
                 'gender' => 'male',
