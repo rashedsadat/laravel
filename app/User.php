@@ -3,10 +3,11 @@
 namespace App;
 
 use App\Models\UserImageFile;
+use Laravel\Passport\HasApiTokens;
+use App\Notifications\PasswordReset;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -41,5 +42,9 @@ class User extends Authenticatable
 
     public function userImageFiles(){
         return $this->morphMany(UserImageFile::class, 'userType');
+    }
+
+    public function sendPasswordResetNotification($token){
+        $this->notify(new PasswordReset($token));
     }
 }
