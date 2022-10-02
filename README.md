@@ -25,7 +25,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 - User can Register
 - User & Admin can login using a common login page.
-- 
+- User must verified them sending OTP via email or SMS.
+- User can Reset there Password.
+- Registration and Login using API
 
 ## Learning Laravel
 
