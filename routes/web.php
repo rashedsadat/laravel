@@ -49,7 +49,7 @@ Route::namespace('Admin')->group(function(){
 
     // Route::resource('roles', 'RoleController');
     // Route::resource('users', 'UserController');
-    // Route::resource('permissions', 'PermissionController');
+    Route::resource('permissions', 'PermissionController');
 });
 
 Route::get('/facebookRedirect', [SocialAuthFacebookController::class, 'facebookRedirect'])->name('facebookRedirect');

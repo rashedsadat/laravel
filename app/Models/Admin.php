@@ -7,10 +7,11 @@ use App\Notifications\PasswordReset;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class Admin extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use HasApiTokens, HasRoles, Notifiable;
     
     protected $guard = 'admin';
     
