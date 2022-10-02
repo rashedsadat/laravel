@@ -100,10 +100,19 @@
                 <!-- /sub-menu --> --}}
 
             </li>
+
+            {{-- Manage permission --}}
             <li class="dt-side-nav__item">
                 <a href="{{route('permissions.index')}}" class="dt-side-nav__link" title="Widgets"> <i
                         class="icon icon-widgets icon-fw icon-xl"></i>
                     <span class="dt-side-nav__text">Manage Permissions</span> </a>
+            </li>
+
+            {{-- Manage Role --}}
+            <li class="dt-side-nav__item">
+                <a href="{{route('roles.index')}}" class="dt-side-nav__link" title="Widgets"> <i
+                        class="icon icon-widgets icon-fw icon-xl"></i>
+                    <span class="dt-side-nav__text">Manage Roles</span> </a>
             </li>
 
         </ul>

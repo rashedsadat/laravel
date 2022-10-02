@@ -47,7 +47,7 @@ Route::namespace('Admin')->group(function(){
     Route::get('admin/profilePicture', [DashboardController::class, 'showUploadProfilePicture'])->name('admin.profilePicture');
     Route::post('admin/upload_profile_pic', [DashboardController::class, 'uploadProfilePic'])->name('admin.upload_profile_pic');
 
-    // Route::resource('roles', 'RoleController');
+    Route::resource('roles', 'RoleController');
     // Route::resource('users', 'UserController');
     Route::resource('permissions', 'PermissionController');
 });
