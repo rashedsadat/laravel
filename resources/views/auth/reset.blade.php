@@ -29,7 +29,7 @@
                                 have registered</p>
 
                             <!-- Form -->
-                            <form action="" method="POST">
+                            <form action="{{route('password.email')}}" method="POST">
 								@csrf
 
                                 <!-- Enter Email -->

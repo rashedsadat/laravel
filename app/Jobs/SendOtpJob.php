@@ -10,6 +10,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Auth;
 
 class SendOtpJob implements ShouldQueue
 {
@@ -33,9 +34,7 @@ class SendOtpJob implements ShouldQueue
      */
     public function handle()
     {
-        // dd($this->data->email);
         $notification = new Notification();
-        // Mail::to($this->data->email)->send(new WelcomeMail($this->data->user));
-        Mail::to($this->data->email)->send(new OTPMail($notification->cacheTheOtp(session('user')->phone_no)));
+        Mail::to($this->data->email)->send(new OTPMail($notification->cacheTheOtp(Auth::guard()->user()->phone_no)));
     }
 }

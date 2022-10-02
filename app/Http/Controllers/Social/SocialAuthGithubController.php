@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Social;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\Services\SocialGoogleAccountService;
 
@@ -31,7 +32,8 @@ class SocialAuthGithubController extends Controller
     public function githubCallback(SocialGoogleAccountService $service)
     {
         $user = $service->createOrGetUser('github');
-        session(['guard' => 'web', 'user' => $user]);
+        Auth::guard('web');
+        Auth::user($user);
         auth()->login($user);
         return redirect()->to('home');
     }

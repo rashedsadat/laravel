@@ -15,8 +15,7 @@ class DashboardController extends Controller
 {
     use FileUploadable;
 
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth:admin');
         $this->middleware('TwoFa');
     }
@@ -24,13 +23,12 @@ class DashboardController extends Controller
     public function index(){
         $users = new User();
         $users = $users->paginate(2);
-        // dd($users);
 
         $image = new ImageFile();
         $image_file = $image->getProfileImage();
 
         $folder = USER_AVATAR.'/thumbnail';
-        $path = $this->find_path($image_file->file_name, $folder);
+        $path = $this->find_path($image_file, $folder);
         session(['path' => $path]);
 
         return view('admin.home', compact('users'));
@@ -51,7 +49,6 @@ class DashboardController extends Controller
                 $imageFile = new ImageFile();
                 $upload = $imageFile->upload($avatar);
                 if($upload){
-                    // $file_name = ['file_name' => $avatar ];
                     $image = DB::table('image_files')->where('file_name', $avatar)->first();
                     $user_id = Auth::user()->id;
                     $user = Admin::find($user_id);

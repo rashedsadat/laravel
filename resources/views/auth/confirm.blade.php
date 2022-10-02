@@ -28,13 +28,20 @@
                             <p class="mb-5">Enter a new password for your account</p>
 
                             <!-- Form -->
-                            <form action="" method="POST">
+                            <form action="{{route('password.update')}}" method="POST">
 								@csrf
 
                                 <!-- Enter Email -->
+                                <x-textbox labelClass="sr-only" for="email" id="email" labelName="User email" type="email" name="email" required="required" placeholder="User email" ariaDescribedby="email"/>
+                                <!-- /form group -->
+
+                                <!-- Enter Password -->
                                 <x-textbox labelClass="sr-only" for="password" id="password" labelName="Enter password" type="password" name="password" required="required" placeholder="New password" ariaDescribedby="password"/>
                                 <!-- /form group -->
+
+                                <!-- Enter Confirm Password -->
                                 <x-textbox labelClass="sr-only" for="password-confirm" id="password-confirm" labelName="Confirm New Password" type="password" name="password_confirmation" required="required" placeholder="Confirm new password" ariaDescribedby="password-confirm"/>
+                                <!-- /form group -->
 
                                 <!-- Submit Button -->
                                 <div class="form-group">

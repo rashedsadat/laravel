@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class UserVarified
 {
@@ -15,7 +16,7 @@ class UserVarified
      */
     public function handle($request, Closure $next)
     {
-        if(session('user')->verified_at){
+        if(Auth::guard()->user()->verified_at){
             return $next($request);
         }
         return redirect('verify');

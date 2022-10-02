@@ -24,24 +24,24 @@ class VerifyOtpController extends Controller
 
     public function sendVerifyOtp(Request $request){
         $notification = new Notification();
-        $user = session('user');
+        $user = Auth::user();
         $notification->sendOtp($user, $request['otp_via']);
         return back();
     }
 
     public function confirmVerificationOtp(OtpRequest $request){
         $notification = new Notification();
-        $user = session('user');
+        $user = Auth::user();
         if($request->otp == Cache::get($notification->otpKye($user->phone_no))){
-            if(session('guard') == 'web'){
+            if(Auth::guard() == 'web'){
                 User::where('id', $user->id)->update(['verified_at' => now()]);
                 $updated_user = User::where('id', $user->id)->first();
-                session(['user' => $updated_user]);
+                Auth::user($updated_user);
                 return redirect('home');
-            }else if(session('guard') == 'admin'){
+            }else if(Auth::guard() == 'admin'){
                 Admin::where('id', $user->id)->update(['verified_at' => now()]);
                 $updated_user = Admin::where('id', $user->id)->first();
-                session(['user' => $updated_user]);
+                Auth::user($updated_user);
                 return redirect()->route('admin.home'); 
             }
         }

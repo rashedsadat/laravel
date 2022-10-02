@@ -54,22 +54,22 @@ class LoginController extends Controller
     {
         if (User::where('email', '=', $request['email'])->exists()) {
             $user = User::where('email', '=', $request['email'])->get()->first();
-            session(['guard' => 'web', 'user' => $user]);
+            $guard = 'web';
+            Auth::user($user);
             $redirect = 'home';
         }
         else if (Admin::where('email', '=', $request['email'])->exists()) {
             $user = Admin::where('email', '=', $request['email'])->get()->first();
-            session(['guard' => 'admin', 'user' => $user]);
+            $guard = 'admin';
+            Auth::user($user);
             $redirect = 'admin.home';
         }else{
             return back()->withInput($request->only('email', 'remember'));
         }
 
-        if (Auth::guard(session('guard'))->attempt(['email' => $request->email, 'password' => $request->password],
+        if (Auth::guard($guard)->attempt(['email' => $request->email, 'password' => $request->password],
         $request->get('remember'))) {
-            // $user[0]->notify(new InvoicePaidNotification());
-            
-            // Notification::send($user, new InvoicePaidNotification());
+            auth()->login($user);
             return redirect()->route($redirect);
         }
         

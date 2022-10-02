@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
 use App\Services\SocialGoogleAccountService;
+use Illuminate\Support\Facades\Auth;
 
 class SocialAuthGoogleController extends Controller
 {
@@ -31,7 +32,8 @@ class SocialAuthGoogleController extends Controller
     public function googleCallback(SocialGoogleAccountService $service)
     {
         $user = $service->createOrGetUser('google');
-        session(['guard' => 'web', 'user' => $user]);
+        Auth::guard('web');
+        Auth::user($user);
         auth()->login($user);
         return redirect()->to('home');
     }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ImageFile extends Model
@@ -13,7 +14,13 @@ class ImageFile extends Model
     }
 
     public function getProfileImage(){
-        return Self::find(session('user')->id)->orderBy('id', 'desc')->first();
+        if(Self::find(Auth::guard()->user()->id)){
+            return Self::find(Auth::guard()->user()->id)->orderBy('id', 'desc')->first()->file_name;
+        }
+        else{
+            return 'default_profile.png';
+        }
+        
     }
     
     // public function makeUpload($file)
@@ -36,16 +43,14 @@ class ImageFile extends Model
     //         return $imgUrl;
     // }
 
-    public function upload($file)
-    {
+    public function upload($file){
         $file_manager = new self();
         $file_manager->file_name = $file;
         $check = $file_manager->save();
         return $check;
     }
 
-    public function uploadUpdate($file)
-    {
+    public function uploadUpdate($file){
         $path = $this->makeUpload($file);
         if ($path) {
             $this->remove();

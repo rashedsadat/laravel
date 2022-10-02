@@ -27,7 +27,6 @@ class SendOtpCode
      */
     public function handle(OtpSend $event)
     {
-        // dd($event->user);
         SendOtpJob::dispatch($event->user)->delay(now()->addSeconds(2));
     }
 }
