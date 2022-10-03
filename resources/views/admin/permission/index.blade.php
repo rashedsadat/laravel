@@ -3,9 +3,12 @@
 @section('content')
 <div class="dt-content">
     <!-- Entry Header -->
-    <div class="pull-right">
-        <a class="btn btn-success text-uppercase" href="{{ route('permissions.create') }}"> Create New Permission</a>
-    </div><br>
+    @can('permission-create')
+        <div class="pull-right">
+            <a class="btn btn-success text-uppercase" href="{{ route('permissions.create') }}"> Create New Permission</a>
+        </div><br>
+    @endcan
+    
     <div class="dt-entry__header">
         
         <!-- Entry Heading -->
@@ -47,14 +50,18 @@
                                 <td>{{$permission['guard_name']}}</td>
                                 <td>
                                     {{-- Edit --}}
-                                    <a class="btn btn-warning text-uppercase" href="{{route('permissions.edit', $permission['id'])}}" style="display: inline; padding: 3px;">Edit</a>
+                                    @can('permission-edit')
+                                        <a class="btn btn-warning text-uppercase" href="{{route('permissions.edit', $permission['id'])}}" style="display: inline; padding: 3px;">Edit</a>
+                                    @endcan
 
                                     {{-- DELETE --}}
-                                    <form method="POST" action="{{route('permissions.destroy', $permission['id'])}}" style="display: inline">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button class="btn btn-danger text-uppercase" style="padding: 3px" type="submit">Delete</button>
-                                    </form>
+                                    @can('permission-delete')
+                                        <form method="POST" action="{{route('permissions.destroy', $permission['id'])}}" style="display: inline">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-danger text-uppercase" style="padding: 3px" type="submit">Delete</button>
+                                        </form>
+                                    @endcan
                                     
                                 </td>
                             </tr>

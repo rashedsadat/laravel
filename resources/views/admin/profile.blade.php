@@ -307,7 +307,7 @@
                                         <!-- Media Body -->
                                         <div class="media-body">
                                             <span class="d-block text-light-gray f-12 mb-1">Mail</span>
-                                            <a href="">kiley.brown@example.com</a>
+                                            <a href="">{{Auth::guard()->user()->email}}</a>
                                         </div>
                                         <!-- /media body -->
 

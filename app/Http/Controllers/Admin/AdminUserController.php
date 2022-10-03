@@ -31,14 +31,12 @@ class AdminUserController extends Controller
     {
         $users = new Admin();
         $users = $users->paginate(10);
-        // $role = array();
-        // foreach ($users as $user) {
-        //     $temp = $user->getRoleNames()->toArray();
-        //     dd($temp);
-        //     array_push($role, $temp);
-        // }
-        // dd($role);
-        return view('admin.admin_users.index',compact('users'));
+        $role = array();
+        foreach ($users as $user) {
+            $temp = $user->getRoleNames()->toArray();
+            array_push($role, $temp);
+        }
+        return view('admin.admin_users.index',compact('users', 'role'));
     }
 
     /**
@@ -112,10 +110,11 @@ class AdminUserController extends Controller
     public function edit($id)
     {
         $user = Admin::find($id);
-        $roles = Role::pluck('name','name')->all();
-        $userRole = $user->roles->pluck('name','name')->all();
-    
-        return view('admin.users.edit',compact('user','roles','userRole'));
+        $roles = Role::all()->toArray();
+        $userRole = $user->roles->pluck('name')->all();
+        // dd($userRole);
+
+        return view('admin.admin_users.edit',compact('user','roles','userRole'));
     }
 
     /**
@@ -128,19 +127,21 @@ class AdminUserController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
+            'name'                  => ['required', 'string', 'max:255'], 
+            'email'                 => ['required', 'email', 'max:255'],
+            'phone_no'              => ['required', 'max:11', new ValidPhoneNumber],
+            'gender'                => ['required', 'string'],
+            'role'                  => ['required', 'string']
         ]);
-    
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
 
-        $user = Admin::find($id);
-        $user->save();
+        $input = $request->all();
+        $user = new Admin();
+
+        $user->where('id', $id)->update(['name' => $input['name'], 'email' => $input['email'], 'phone_no' => $input['phone_no'], 'gender' => $input['gender']]);
     
-        $user->syncRoles($request->input('roles'));
+        $user = $user->find($id)->first();
+        $user->syncRoles($input['role']);
+
         $permissions = $user->getAllPermissions();
         $permission_list = array();
         foreach ($permissions as $permission) {

@@ -3,9 +3,11 @@
 @section('content')
 <div class="dt-content">
     <!-- Entry Header -->
-    <div class="pull-right">
-        <a class="btn btn-success text-uppercase" href="{{ route('admin_users.create') }}"> Create New User</a>
-    </div><br>
+    @can('admin-user-create')
+        <div class="pull-right">
+            <a class="btn btn-success text-uppercase" href="{{ route('admin_users.create') }}"> Create New User</a>
+        </div><br>
+    @endcan
     <div class="dt-entry__header">
         
         <!-- Entry Heading -->
@@ -34,7 +36,7 @@
                             <th class="text-uppercase" scope="col">Phone</th>
                             <th class="text-uppercase" scope="col">Gender</th>
                             <th class="text-uppercase" scope="col">Varification</th>
-                            {{-- <th class="text-uppercase" scope="col">Role</th> --}}
+                            <th class="text-uppercase" scope="col">Role</th>
                             <th class="text-uppercase" scope="col">Action</th>
                         </tr>
                     </thead>
@@ -51,17 +53,21 @@
                                 <td>{{$user['phone_no']}}</td>
                                 <td>{{$user['gender']}}</td>
                                 <td>{{$user['verified_at'] ? 'Yes' : 'No'}}</td>
-                                {{-- <td>{{$role[$index - 1][0]}}</td> --}}
+                                <td>{{$role[$index - 1][0]}}</td>
                                 <td>
                                     {{-- Edit --}}
-                                    <a class="btn btn-warning text-uppercase" href="{{route('admin_users.edit', $user['id'])}}" style="display: inline; padding: 3px;">Edit</a>
+                                    @can('admin-user-edit')
+                                        <a class="btn btn-warning text-uppercase" href="{{route('admin_users.edit', $user['id'])}}" style="display: inline; padding: 3px;">Edit</a>
+                                    @endcan
 
                                     {{-- DELETE --}}
-                                    <form method="POST" action="{{route('admin_users.destroy', $user['id'])}}" style="display: inline">
-                                        @csrf
-                                        @method("DELETE")
-                                        <button class="btn btn-danger text-uppercase" style="padding: 3px" type="submit">Delete</button>
-                                    </form>
+                                    @can('admin-user-delete')
+                                        <form method="POST" action="{{route('admin_users.destroy', $user['id'])}}" style="display: inline">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button class="btn btn-danger text-uppercase" style="padding: 3px" type="submit">Delete</button>
+                                        </form>
+                                    @endcan
                                     
                                 </td>
                             </tr>

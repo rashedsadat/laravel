@@ -47,16 +47,13 @@
 
             <ul class="dt-list dt-list-xl">
                 <li class="dt-list__item pl-5 pr-5">
-                    <a href="javascript:void(0)" class="dt-list__link"><i
-                            class="icon icon-search-new icon-xl"></i></a>
+                    <a href="javascript:void(0)" class="dt-list__link"><i class="icon icon-search-new icon-xl"></i></a>
                 </li>
                 <li class="dt-list__item pl-5 pr-5">
-                    <a href="javascript:void(0)" class="dt-list__link"><i
-                            class="icon icon-notification icon-xl"></i></a>
+                    <a href="javascript:void(0)" class="dt-list__link"><i class="icon icon-notification icon-xl"></i></a>
                 </li>
                 <li class="dt-list__item pl-5 pr-5">
-                    <a href="javascript:void(0)" class="dt-list__link"><i
-                            class="icon icon-chat-new icon-xl"></i></a>
+                    <a href="javascript:void(0)" class="dt-list__link"><i class="icon icon-chat-new icon-xl"></i></a>
                 </li>
             </ul>
         </div>
@@ -74,8 +71,9 @@
             <!-- Menu Item -->
             <li class="dt-side-nav__item">
                 <a href="{{route('admin.home')}}" class="dt-side-nav__link" title="Dashboard">
-                    <i class="icon icon-dashboard icon-fw icon-xl"></i> <span
-                        class="dt-side-nav__text">Dashboard</span> </a>
+                    <i class="icon icon-dashboard icon-fw icon-xl"></i>
+                    <span class="dt-side-nav__text">Dashboard</span>
+                </a>
 
                 {{-- <!-- Sub-menu -->
                 <ul class="dt-side-nav__sub-menu">
@@ -102,26 +100,35 @@
             </li>
 
             {{-- Manage permission --}}
-            <li class="dt-side-nav__item">
-                <a href="{{route('permissions.index')}}" class="dt-side-nav__link" title="Widgets"> <i
-                        class="icon icon-widgets icon-fw icon-xl"></i>
-                    <span class="dt-side-nav__text">Manage Permissions</span> </a>
-            </li>
+            @can('permission-list')
+                <li class="dt-side-nav__item">
+                    <a href="{{route('permissions.index')}}" class="dt-side-nav__link" title="Widgets">
+                        <i class="icon icon-widgets icon-fw icon-xl"></i>
+                        <span class="dt-side-nav__text">Manage Permissions</span>
+                    </a>
+                </li>
+            @endcan
 
             {{-- Manage Role --}}
-            <li class="dt-side-nav__item">
-                <a href="{{route('roles.index')}}" class="dt-side-nav__link" title="Widgets"> <i
-                        class="icon icon-widgets icon-fw icon-xl"></i>
-                    <span class="dt-side-nav__text">Manage Roles</span> </a>
-            </li>
+            @can('role-list')
+                <li class="dt-side-nav__item">
+                    <a href="{{route('roles.index')}}" class="dt-side-nav__link" title="Widgets">
+                        <i class="icon icon-widgets icon-fw icon-xl"></i>
+                        <span class="dt-side-nav__text">Manage Roles</span>
+                    </a>
+                </li>
+            @endcan
 
             {{-- Manage Admin users --}}
-            <li class="dt-side-nav__item">
-                <a href="{{route('admin_users.index')}}" class="dt-side-nav__link" title="Widgets"> <i
-                        class="icon icon-widgets icon-fw icon-xl"></i>
-                    <span class="dt-side-nav__text">Manage Admin Users</span> </a>
-            </li>
-
+            @can('admin-user-list')
+                <li class="dt-side-nav__item">
+                    <a href="{{route('admin_users.index')}}" class="dt-side-nav__link" title="Widgets">
+                        <i class="icon icon-widgets icon-fw icon-xl"></i>
+                        <span class="dt-side-nav__text">Manage Admin Users</span>
+                    </a>
+                </li>
+            @endcan
+            
         </ul>
         <!-- /sidebar navigation -->
 
