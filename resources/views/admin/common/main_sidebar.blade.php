@@ -115,6 +115,13 @@
                     <span class="dt-side-nav__text">Manage Roles</span> </a>
             </li>
 
+            {{-- Manage Admin users --}}
+            <li class="dt-side-nav__item">
+                <a href="{{route('admin_users.index')}}" class="dt-side-nav__link" title="Widgets"> <i
+                        class="icon icon-widgets icon-fw icon-xl"></i>
+                    <span class="dt-side-nav__text">Manage Admin Users</span> </a>
+            </li>
+
         </ul>
         <!-- /sidebar navigation -->
 
