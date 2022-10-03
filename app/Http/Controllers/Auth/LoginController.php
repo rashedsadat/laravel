@@ -69,6 +69,17 @@ class LoginController extends Controller
 
         if (Auth::guard($guard)->attempt(['email' => $request->email, 'password' => $request->password],
         $request->get('remember'))) {
+            $access_token = $user->createToken($request['email'])->accessToken;
+            $user->access_token =  $access_token;
+            $check = $user->save();
+
+            if($check){
+                $message = 'User successfully Login!';
+                $status = 201;
+            }else{
+                $message = 'User Login Failed';
+                $status = 422;
+            }
             auth()->login($user);
             return redirect()->route($redirect);
         }

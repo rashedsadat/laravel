@@ -117,10 +117,16 @@ class RoleController extends Controller
     public function destroy($id)
     {
         $role = Role::find($id);
-        $users = Admin::all();
+        $users = Admin::role('Sub-Admin')->get();
         foreach ($users as $user) {
             $user->removeRole($role->name);
+            $permissions = $user->getAllPermissions();
+            $permission_list = array();
+            foreach ($permissions as $permission) {
+                $user->revokePermissionTo($permission);
+            }
         }
+
         $role->delete();
         return redirect()->route('roles.index')->with('success','Role deleted successfully');
     }

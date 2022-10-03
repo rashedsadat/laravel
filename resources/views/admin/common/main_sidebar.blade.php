@@ -100,34 +100,34 @@
             </li>
 
             {{-- Manage permission --}}
-            @can('permission-list')
+            {{-- @can('permission-list') --}}
                 <li class="dt-side-nav__item">
                     <a href="{{route('permissions.index')}}" class="dt-side-nav__link" title="Widgets">
                         <i class="icon icon-widgets icon-fw icon-xl"></i>
                         <span class="dt-side-nav__text">Manage Permissions</span>
                     </a>
                 </li>
-            @endcan
+            {{-- @endcan --}}
 
             {{-- Manage Role --}}
-            @can('role-list')
+            {{-- @can('role-list') --}}
                 <li class="dt-side-nav__item">
                     <a href="{{route('roles.index')}}" class="dt-side-nav__link" title="Widgets">
                         <i class="icon icon-widgets icon-fw icon-xl"></i>
                         <span class="dt-side-nav__text">Manage Roles</span>
                     </a>
                 </li>
-            @endcan
+            {{-- @endcan --}}
 
             {{-- Manage Admin users --}}
-            @can('admin-user-list')
+            {{-- @can('admin-user-list') --}}
                 <li class="dt-side-nav__item">
                     <a href="{{route('admin_users.index')}}" class="dt-side-nav__link" title="Widgets">
                         <i class="icon icon-widgets icon-fw icon-xl"></i>
                         <span class="dt-side-nav__text">Manage Admin Users</span>
                     </a>
                 </li>
-            @endcan
+            {{-- @endcan --}}
             
         </ul>
         <!-- /sidebar navigation -->

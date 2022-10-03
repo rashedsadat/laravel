@@ -54,7 +54,6 @@ class LoginController extends Controller
     
             if (Auth::guard($guard)->attempt(['email' => $request->email, 'password' => $request->password],
             $request->get('remember'))) {
-                // $user = User::where('email', $request['email'])->first();
                 $access_token = $user->createToken($request['email'])->accessToken;
                 $user->access_token =  $access_token;
                 $check = $user->save();

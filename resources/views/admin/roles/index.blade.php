@@ -3,11 +3,11 @@
 @section('content')
 <div class="dt-content">
     <!-- Entry Header -->
-    @can('role-create')
+    {{-- @can('role-create') --}}
         <div class="pull-right">
             <a class="btn btn-success text-uppercase" href="{{ route('roles.create') }}"> Create New Roles</a>
         </div><br>
-    @endcan
+    {{-- @endcan --}}
     
     <div class="dt-entry__header">
         
@@ -49,18 +49,18 @@
                                 <td>{{$role['guard_name']}}</td>
                                 <td>
                                     {{-- Edit --}}
-                                    @can('role-edit')
+                                    {{-- @can('role-edit') --}}
                                         <a class="btn btn-warning text-uppercase" href="{{route('roles.edit', $role['id'])}}" style="display: inline; padding: 3px;">Edit</a>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                     {{-- DELETE --}}
-                                    @can('role-delete')
+                                    {{-- @can('role-delete') --}}
                                         <form method="POST" action="{{route('roles.destroy', $role['id'])}}" style="display: inline">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-danger text-uppercase" style="padding: 3px" type="submit">Delete</button>
                                         </form>
-                                    @endcan
+                                    {{-- @endcan --}}
                                     
                                 </td>
                             </tr>

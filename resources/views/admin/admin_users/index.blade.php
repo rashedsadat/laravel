@@ -3,11 +3,11 @@
 @section('content')
 <div class="dt-content">
     <!-- Entry Header -->
-    @can('admin-user-create')
+    {{-- @can('admin-user-create') --}}
         <div class="pull-right">
             <a class="btn btn-success text-uppercase" href="{{ route('admin_users.create') }}"> Create New User</a>
         </div><br>
-    @endcan
+    {{-- @endcan --}}
     <div class="dt-entry__header">
         
         <!-- Entry Heading -->
@@ -53,21 +53,27 @@
                                 <td>{{$user['phone_no']}}</td>
                                 <td>{{$user['gender']}}</td>
                                 <td>{{$user['verified_at'] ? 'Yes' : 'No'}}</td>
-                                <td>{{$role[$index - 1][0]}}</td>
+                                <td>
+                                    @if($role[$index - 1])
+                                        {{$role[$index - 1][0]}}
+                                    @else
+                                        Not assign
+                                    @endif
+                                </td>
                                 <td>
                                     {{-- Edit --}}
-                                    @can('admin-user-edit')
+                                    {{-- @can('admin-user-edit') --}}
                                         <a class="btn btn-warning text-uppercase" href="{{route('admin_users.edit', $user['id'])}}" style="display: inline; padding: 3px;">Edit</a>
-                                    @endcan
+                                    {{-- @endcan --}}
 
                                     {{-- DELETE --}}
-                                    @can('admin-user-delete')
+                                    {{-- @can('admin-user-delete') --}}
                                         <form method="POST" action="{{route('admin_users.destroy', $user['id'])}}" style="display: inline">
                                             @csrf
                                             @method("DELETE")
                                             <button class="btn btn-danger text-uppercase" style="padding: 3px" type="submit">Delete</button>
                                         </form>
-                                    @endcan
+                                    {{-- @endcan --}}
                                     
                                 </td>
                             </tr>

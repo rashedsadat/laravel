@@ -138,8 +138,9 @@ class AdminUserController extends Controller
         $user = new Admin();
 
         $user->where('id', $id)->update(['name' => $input['name'], 'email' => $input['email'], 'phone_no' => $input['phone_no'], 'gender' => $input['gender']]);
-    
-        $user = $user->find($id)->first();
+
+        $user = Admin::where('email', $input['email'])->get()->first();
+
         $user->syncRoles($input['role']);
 
         $permissions = $user->getAllPermissions();

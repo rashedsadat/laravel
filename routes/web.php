@@ -45,61 +45,65 @@ Route::namespace('Admin')->group(function(){
     Route::post('admin/upload_profile_pic', [DashboardController::class, 'uploadProfilePic'])->name('admin.upload_profile_pic');
 
     // Route for control admin user 
-    Route::group(['middleware' => ['can:admin-user-list']], function () {
-        Route::get('admin_users', [AdminUserController::class, 'index'])->name('admin_users.index');
-    });
+    // Route::group(['middleware' => ['can:admin-user-list']], function () {
+    //     Route::get('admin_users', [AdminUserController::class, 'index'])->name('admin_users.index');
+    // });
 
-    Route::group(['middleware' => ['can:admin-user-create']], function(){
-        Route::get('admin_users/create', [AdminUserController::class, 'create'])->name('admin_users.create');
-        Route::post('admin_users', [AdminUserController::class, 'store'])->name('admin_users.store');
-    });
+    // Route::group(['middleware' => ['can:admin-user-create']], function(){
+    //     Route::get('admin_users/create', [AdminUserController::class, 'create'])->name('admin_users.create');
+    //     Route::post('admin_users', [AdminUserController::class, 'store'])->name('admin_users.store');
+    // });
 
-    Route::group(['middleware' => ['can:admin-user-edit']], function(){
-        Route::get('admin_users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin_users.edit');
-        Route::put('admin_users/{id}', [AdminUserController::class, 'update'])->name('admin_users.update');
-    });
+    // Route::group(['middleware' => ['can:admin-user-edit']], function(){
+    //     Route::get('admin_users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin_users.edit');
+    //     Route::put('admin_users/{id}', [AdminUserController::class, 'update'])->name('admin_users.update');
+    // });
 
-    Route::group(['middleware' => ['can:admin-user-delete']], function(){
-        Route::delete('admin_users/{id}', [AdminUserController::class, 'destroy'])->name('admin_users.destroy');
-    });
+    // Route::group(['middleware' => ['can:admin-user-delete']], function(){
+    //     Route::delete('admin_users/{id}', [AdminUserController::class, 'destroy'])->name('admin_users.destroy');
+    // });
 
-    // Route for control Roles
-    Route::group(['middleware' => ['can:role-list']], function(){
-        Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
-    });
+    // // Route for control Roles
+    // Route::group(['middleware' => ['can:role-list']], function(){
+    //     Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
+    // });
 
-    Route::group(['middleware' => ['can:role-create']], function(){
-        Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
-        Route::post('roles', [RoleController::class, 'store'])->name('roles.store');
-    });
+    // Route::group(['middleware' => ['can:role-create']], function(){
+    //     Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
+    //     Route::post('roles', [RoleController::class, 'store'])->name('roles.store');
+    // });
 
-    Route::group(['middleware' => ['can:role-edit']], function(){
-        Route::get('roles/{id}/edit', [RoleController::class, 'edit'])->name('roles.edit');
-        Route::put('roles/{id}', [RoleController::class, 'update'])->name('roles.update');
-    });
+    // Route::group(['middleware' => ['can:role-edit']], function(){
+    //     Route::get('roles/{id}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+    //     Route::put('roles/{id}', [RoleController::class, 'update'])->name('roles.update');
+    // });
 
-    Route::group(['middleware' => ['can:role-delete']], function(){
-        Route::delete('roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
-    });
+    // Route::group(['middleware' => ['can:role-delete']], function(){
+    //     Route::delete('roles/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+    // });
 
-    // Route for control Permissions
-    Route::group(['middleware' => ['can:permission-list']], function(){
-        Route::get('permissions', [PermissionController::class, 'index'])->name('permissions.index');
-    });
+    // // Route for control Permissions
+    // Route::group(['middleware' => ['can:permission-list']], function(){
+    //     Route::get('permissions', [PermissionController::class, 'index'])->name('permissions.index');
+    // });
 
-    Route::group(['middleware' => ['can:permission-create']], function(){
-        Route::get('permissions/create', [PermissionController::class, 'create'])->name('permissions.create');
-        Route::post('permissions', [PermissionController::class, 'store'])->name('permissions.store');
-    });
+    // Route::group(['middleware' => ['can:permission-create']], function(){
+    //     Route::get('permissions/create', [PermissionController::class, 'create'])->name('permissions.create');
+    //     Route::post('permissions', [PermissionController::class, 'store'])->name('permissions.store');
+    // });
 
-    Route::group(['middleware' => ['can:permission-edit']], function(){
-        Route::get('permissions/{id}/edit', [PermissionController::class, 'edit'])->name('permissions.edit');
-        Route::put('permissions/{id}', [PermissionController::class, 'update'])->name('permissions.update');
-    });
+    // Route::group(['middleware' => ['can:permission-edit']], function(){
+    //     Route::get('permissions/{id}/edit', [PermissionController::class, 'edit'])->name('permissions.edit');
+    //     Route::put('permissions/{id}', [PermissionController::class, 'update'])->name('permissions.update');
+    // });
 
-    Route::group(['middleware' => ['can:permission-delete']], function(){
-        Route::delete('permissions/{id}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
-    });
+    // Route::group(['middleware' => ['can:permission-delete']], function(){
+    //     Route::delete('permissions/{id}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+    // });
+
+    Route::resource('roles', 'RoleController');
+    Route::resource('admin_users', 'AdminUserController');
+    Route::resource('permissions', 'PermissionController');
 });
 
 Route::get('/facebookRedirect', [SocialAuthFacebookController::class, 'facebookRedirect'])->name('facebookRedirect');
